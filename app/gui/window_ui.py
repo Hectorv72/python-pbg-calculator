@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from .components.ui_menubar import UiMenuBar
 
 
 class Ui_MainWindow(object):
@@ -61,24 +62,14 @@ class Ui_MainWindow(object):
 
         MainWindow.setCentralWidget(self.centralwidget)
 
-        # self.menubar = QtWidgets.QMenuBar(MainWindow)
-        # self.menubar.setGeometry(QtCore.QRect(0, 0, 452, 21))
-        # self.menubar.setObjectName("menubar")
-
-        # self.menu_Archivo = QtWidgets.QMenu(self.menubar)
-        # self.menu_Archivo.setObjectName("menu_Archivo")
-        menu_bar =
-        MainWindow.setMenuBar(self.menubar)
-
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
 
         MainWindow.setStatusBar(self.statusbar)
 
-        self.actionImportar = QtWidgets.QAction(MainWindow)
-        self.actionImportar.setObjectName("actionImportar")
-        self.menu_Archivo.addAction(self.actionImportar)
-        self.menubar.addAction(self.menu_Archivo.menuAction())
+        # Agrega la barra de menu superior
+        uimenu = UiMenuBar()
+        MainWindow.setMenuBar(uimenu.menubar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -88,8 +79,6 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "CALCULADORA PBG"))
         self.pushButton.setText(_translate("MainWindow", "Exportar"))
-        self.menu_Archivo.setTitle(_translate("MainWindow", "&Archivo"))
-        self.actionImportar.setText(_translate("MainWindow", "Importar"))
 
 
 if __name__ == "__main__":
