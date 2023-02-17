@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from .components.ui_menubar import UiMenuBar
+from .components.ui_menubar import Ui_MenuBar
 
 
 class Ui_MainWindow(object):
@@ -68,7 +68,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         # Agrega la barra de menu superior
-        uimenu = UiMenuBar()
+        uimenu = Ui_MenuBar(self.centralwidget)
         MainWindow.setMenuBar(uimenu.menubar)
 
         self.retranslateUi(MainWindow)

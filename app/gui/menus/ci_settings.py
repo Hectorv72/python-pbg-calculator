@@ -9,10 +9,12 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-app = None
 
+class Ui_CiSettings(QtWidgets.QWidget):
 
-class Ui_MainWindow(object):
+    def __init__(self):
+        super().__init__()
+        self.setupUi()
 
     def setupLetters(self):
         for letter in 'ABCDEFGHIJKLMNOP':
@@ -33,47 +35,35 @@ class Ui_MainWindow(object):
             self.verticalLayout.addLayout(horizontalLayoutLetter)
 #
 
-    def setupUi(self, ParamsWindow):
-        ParamsWindow.setObjectName("ParamsWindow")
-        ParamsWindow.setWindowModality(QtCore.Qt.NonModal)
-        ParamsWindow.resize(340, 420)
+    def setupUi(self):
+        # ParamsWindow.setObjectName("ParamsWindow")
+        # ParamsWindow.setWindowModality(QtCore.Qt.WindowModality)
+        # ParamsWindow.resize(340, 420)
 
-        self.centralwidget = QtWidgets.QWidget(ParamsWindow)
-        self.centralwidget.setObjectName("centralwidget")
+        # self.centralwidget = QtWidgets.QWidget(ParamsWindow)
+        # self.centralwidget.setObjectName("centralwidget")
 
-        self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(20, 10, 311, 350))
-        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        # self.verticalLayoutWidget = QtWidgets.QWidget()
+        # self.verticalLayoutWidget.setGeometry(QtCore.QRect(20, 10, 311, 350))
+        # self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
 
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout.setObjectName("verticalLayout")
+        # self.verticalLayout = QtWidgets.QVBoxLayout()
+        # self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        # self.verticalLayout.setObjectName("verticalLayout")
+        layout = QtWidgets.QVBoxLayout()
+        self.label = QtWidgets.QLabel("Another Window")
+        layout.addWidget(self.label)
+        self.setLayout(layout)
 
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(132, 380, 75, 23))
-        self.pushButton.setObjectName("pushButton")
-        self.pushButton.clicked.connect(
-            QtCore.QCoreApplication.instance().quit)
-        self.pushButton.setText('Guardar')
+        # self.pushButton = QtWidgets.QPushButton(self)
+        # self.pushButton.setGeometry(QtCore.QRect(132, 380, 75, 23))
+        # self.pushButton.setObjectName("pushButton")
+        # self.pushButton.clicked.connect(
+        #     QtCore.QCoreApplication.instance().quit)
+        # self.pushButton.setText('Guardar')
 
-        self.setupLetters()
+        # self.setupLetters()
 
-        ParamsWindow.setCentralWidget(self.centralwidget)
+        # self.setLayout(self.verticalLayout)
 
-        self.retranslateUi(ParamsWindow)
-        QtCore.QMetaObject.connectSlotsByName(ParamsWindow)
-
-    def retranslateUi(self, ParamsWindow):
-        _translate = QtCore.QCoreApplication.translate
-        ParamsWindow.setWindowTitle(_translate(
-            "ParamsWindow", "Configuración Costo Itermedio"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    ParamsWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(ParamsWindow)
-    ParamsWindow.show()
-    sys.exit(app.exec_())
+        # ParamsWindow.setCentralWidget(self.centralwidget)
